@@ -6,7 +6,7 @@
 /*   By: smoreron <smoreron@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:33:40 by smoreron          #+#    #+#             */
-/*   Updated: 2024/08/10 20:48:32 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:08:22 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int main()
 	while (true)
 	{
 		std::cout << "Enter command: \n" << std::endl;
-		std::cin >> cmd;
+		if(!(std::cin >> cmd))
+			break;
 		if(cmd == "ADD" || cmd == "add")
 		{
 			phoneBook.AddContact();

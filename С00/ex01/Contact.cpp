@@ -6,7 +6,7 @@
 /*   By: smoreron <smoreron@student.42heilbronn.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/10 19:33:29 by smoreron          #+#    #+#             */
-/*   Updated: 2024/08/10 20:50:00 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/08/14 16:05:29 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,19 @@ void Contact::AddContact()
 	std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 
     std::cout << "Enter first name: ";
-    std::getline(std::cin, m_firstName);
+    if(!std::getline(std::cin, m_firstName)) return;
 
     std::cout << "Enter last name: ";
-    std::getline(std::cin, m_secondName);
+    if(std::getline(std::cin, m_secondName)) return;
 
     std::cout << "Enter nickname: ";
-    std::getline(std::cin, m_nickName);
+    if(!std::getline(std::cin, m_nickName)) return;
 
     std::cout << "Enter phone number: ";
-    std::getline(std::cin, m_PhoneNumber);
+    if(!std::getline(std::cin, m_PhoneNumber)) return;
 
     std::cout << "Enter darkest secret: ";
-    std::getline(std::cin, m_Secret);
+    if(std::getline(std::cin, m_Secret)) return;
 }
 
 
