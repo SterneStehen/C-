@@ -16,19 +16,25 @@
 #include <string>
 #include <iostream>
 
-class Zombie {
+class Zombie
+{
 private:
-    std::string name;
+	std::string name;
 public:
-    Zombie(std::string name);
-    ~Zombie();
-    void announce(){
+	Zombie();
+	~Zombie();
+	void announce( void )
+	{
 		std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	}
+	void setName(std::string NewName)
+	{
+		name = NewName;
+		std::cout << "Set name: " << name << std::endl;
 	}
 };
 
-// Прототипы функций
-Zombie* newZombie(std::string NewName);
-void randomChump(std::string name);
+void randomChump( std::string name );
+Zombie* newZombie( std::string name );
 
-#endif // ZOMBIE_HPP
+#endif

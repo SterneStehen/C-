@@ -13,7 +13,8 @@
 #include "Zombie.hpp"
 
 void randomChump( std::string name )
-	{
-		Zombie NewZombi2(name);
-		NewZombi2.announce();
-	}
+{
+	Zombie next;
+	next.setName(name);
+	next.announce();
+}

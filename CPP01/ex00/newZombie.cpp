@@ -12,7 +12,10 @@
 
 #include "Zombie.hpp"
 
-Zombie *newZombie(std::string NewName)
+Zombie* newZombie( std::string name )
 {
-	return new Zombie(NewName);
+	Zombie *plus = new Zombie; 
+	plus->setName(name);
+	std::cout << "add NewName in func newZombie: " << name << std::endl;
+	return plus;
 }

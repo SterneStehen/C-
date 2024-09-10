@@ -12,9 +12,16 @@
 
 #include "Zombie.hpp"
 
-Zombie::Zombie(std::string name){
-		name = name;
-	} ;
-Zombie::~Zombie() {
-		std::cout << name << " was Desroy"<< std::endl;
-	}; 
+Zombie::Zombie(){
+	std::cout << "Creat Zombie: " << std::endl;
+}
+Zombie::~Zombie()
+{
+	std::cout << "Destriy Zombie: " << name << std::endl;
+}
+
+
+
+
+
+
