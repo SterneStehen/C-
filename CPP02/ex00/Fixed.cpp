@@ -6,35 +6,25 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 14:42:40 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/15 15:15:12 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/15 18:50:16 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "Fixed.hpp"
 
-class Fixed
+Fixed::Fixed(): data(0)
 {
-private:
-	int *data;
-	const int e = 8;
-public:
-	Fixed(int value);
-	~Fixed();
-	Fixed(const Fixed& other);
-	// void setRawBits(int const raw);
-	// int getRawBits(void) const;
-	int getData();
-};
-
-Fixed::Fixed(int value)
-{
-	data = new int(value);
 	std::cout << "Default constructor called" << std::endl;
 }
+// Fixed::Fixed(int value): data(0)
+// {
+// 	//data = new int(value);
+// 	std::cout << "Default constructor  with argument called" << std::endl;
+// }
 
 Fixed::~Fixed()
 {
-	delete data;
+	//delete data;
 	std::cout << "Destructor called" << std::endl;
 
 }
@@ -42,22 +32,29 @@ Fixed::~Fixed()
 Fixed::Fixed(const Fixed& other)
 {
 	
-	data = new int(*(other.data));
+	//data = new int(*(other.data));
 	std::cout << "Copy constructor called" << std::endl;
+	data = (other.getRawBits());
+	
 }
 
-int Fixed::getData()
+Fixed& Fixed::operator=(const Fixed& other2)
 {
-	return *data;
-};
+	std::cout << "Assignation operator called" << std::endl;
+	if(this != &other2)
+		data = other2.getRawBits();
+	return *this;
+}
 
-
-int main()
+void Fixed::setRawBits(int const raw)
 {
-	Fixed a(10);
-	Fixed b = a;
-
-	std::cout << "return vaule a = " << a.getData() << std::endl;
-	std::cout << "return vaule b = " << b.getData() << std::endl;
-
+	data = raw;
+	std::cout << "setRawBits member function called" << std::endl;
+	
+}
+int Fixed::getRawBits(void) const
+{
+	
+	std::cout << "getRawBits member function called" << std::endl;
+	return data;
 }

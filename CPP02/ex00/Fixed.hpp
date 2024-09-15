@@ -6,56 +6,31 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 15:07:13 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/15 15:08:32 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/15 18:50:39 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+
+#ifndef FIXED_HPP
+#define FIXED_HPP
 
 #include <iostream>
 
 class Fixed
 {
 private:
-	int *data;
-	const int e = 8;
+	int data;
+	const int bits = 8;
 public:
-	Fixed(/* args */);
-	~Fixed();
+	Fixed();
+	//Fixed(int value);
 	Fixed(const Fixed& other);
-	void setRawBits(int const raw);
+	Fixed& operator=(const Fixed& other2);
 	int getRawBits(void) const;
-	int getData() const
-	{
-		return data;
-	}
-	
-};
-
-Fixed::Fixed(int value)
-{
-	data = new int(value);
-	std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::~Fixed()
-{
-	delete data;
-	std::cout << "Destructor called" << std::endl;
-
-}
-
-Fixed::Fixed(const Fixed& other)
-{
-	
-	data = new int(*(other.data));
-	std::cout << "Copy constructor called" << std::endl;
+	void setRawBits(int const raw);
+	//int getData();
+	~Fixed();
 };
 
 
-int main()
-{
-	Fixed a(10);
-	b = a;
-
-	std::cout << "return vaule = " << getData() << std::endl;
-
-}
+#endif
