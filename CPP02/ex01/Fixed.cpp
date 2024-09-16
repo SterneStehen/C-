@@ -6,12 +6,13 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 18:52:51 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/16 15:56:17 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/16 16:41:42 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <iostream>
+#include <cmath>
 
 class Fixed
 {
@@ -21,31 +22,27 @@ private:
 public:
 	Fixed();
 	Fixed(int input);
-	//Fixed(int value);
+	Fixed(float input_float);
 	Fixed(const Fixed& other);
 	Fixed& operator=(const Fixed& other2);
+	
 	int getRawBits(void) const;
 	void setRawBits(int const raw);
-	//int getData();
+	float toFloat( void ) const;
+	int toInt( void ) const;
 	void ft_print ();
 	~Fixed();
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
 
 
 Fixed::Fixed() : data(0)
 {
 	std::cout << "Default constructor called" << std::endl;
 }
-Fixed::Fixed(int input)
-{
-	data = (input << bits);
-	std::cout << "Default constructor called" << std::endl;
-}
-// Fixed::Fixed(int value): data(0)
-// {
-// 	//data = new int(value);
-// 	std::cout << "Default constructor  with argument called" << std::endl;
-// }
+
+
 
 Fixed::~Fixed()
 {
@@ -71,6 +68,12 @@ Fixed& Fixed::operator=(const Fixed& other2)
 	return *this;
 }
 
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) 
+{
+    os << fixed.toFloat();
+    return os;
+}
+
 void Fixed::setRawBits(int const raw)
 {
 	data = raw;
@@ -83,6 +86,31 @@ int Fixed::getRawBits(void) const
 	std::cout << "getRawBits member function called" << std::endl;
 	return data;
 }
+
+Fixed::Fixed(int input)
+{
+	data = (input << bits);
+	std::cout << "Int constructor called" << std::endl;
+}
+int Fixed::toInt( void ) const
+{
+	return data >> bits;
+}
+
+
+
+Fixed::Fixed(float input_float)
+{
+	data = roundf(input_float * (1 << bits));
+	std::cout << "Float constructor called" << std::endl;
+}
+
+float Fixed::toFloat( void ) const
+{
+	 return static_cast<float>(data) / (1 << bits);	
+}
+
+
 void Fixed::ft_print ()
 {
 	std::cout << "data = " << data << std::endl;
@@ -90,30 +118,17 @@ void Fixed::ft_print ()
 
 int main( void ) {
 Fixed a;
-a.ft_print();
-// Fixed const b( 10 );
-// Fixed const c( 42.42f );
-// Fixed const d( b );
-// a = Fixed( 1234.4321f );
-//std::cout << "a is " << a << std::endl;
-// std::cout << "b is " << b << std::endl;
-// std::cout << "c is " << c << std::endl;
-// std::cout << "d is " << d << std::endl;
-// std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-// std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-// std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-// std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+Fixed const b( 10 );
+Fixed const c( 42.42f );
+Fixed const d( b );
+a = Fixed( 1234.4321f );
+std::cout << "a is " << a << std::endl;
+std::cout << "b is " << b << std::endl;
+std::cout << "c is " << c << std::endl;
+std::cout << "d is " << d << std::endl;
+std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+std::cout << "d is " << d.toInt() << " as integer" << std::endl;
 return 0;
 }
-
-// int main( void ) 
-// {
-// Fixed a;
-// Fixed b( a );
-// Fixed c;
-// c = b;
-// std::cout << a.getRawBits() << std::endl;
-// std::cout << b.getRawBits() << std::endl;
-// std::cout << c.getRawBits() << std::endl;
-// return 0;
-// }
