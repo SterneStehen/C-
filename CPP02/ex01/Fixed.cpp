@@ -6,35 +6,11 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/15 18:52:51 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/16 16:41:42 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/16 21:39:00 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#include <iostream>
-#include <cmath>
-
-class Fixed
-{
-private:
-	int data;
-	const int bits = 8;
-public:
-	Fixed();
-	Fixed(int input);
-	Fixed(float input_float);
-	Fixed(const Fixed& other);
-	Fixed& operator=(const Fixed& other2);
-	
-	int getRawBits(void) const;
-	void setRawBits(int const raw);
-	float toFloat( void ) const;
-	int toInt( void ) const;
-	void ft_print ();
-	~Fixed();
-};
-
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+#include "Fixed.hpp"
 
 
 Fixed::Fixed() : data(0)
@@ -56,7 +32,7 @@ Fixed::Fixed(const Fixed& other)
 	
 	//data = new int(*(other.data));
 	std::cout << "Copy constructor called" << std::endl;
-	data = (other.getRawBits());
+	*this = other;
 	
 }
 
@@ -77,13 +53,13 @@ std::ostream& operator<<(std::ostream& os, const Fixed& fixed)
 void Fixed::setRawBits(int const raw)
 {
 	data = raw;
-	std::cout << "setRawBits member function called" << std::endl;
+	//std::cout << "setRawBits member function called" << std::endl;
 	
 }
 int Fixed::getRawBits(void) const
 {
 	
-	std::cout << "getRawBits member function called" << std::endl;
+	//std::cout << "getRawBits member function called" << std::endl;
 	return data;
 }
 
@@ -111,24 +87,24 @@ float Fixed::toFloat( void ) const
 }
 
 
-void Fixed::ft_print ()
-{
-	std::cout << "data = " << data << std::endl;
-}
+// void Fixed::ft_print ()
+// {
+// 	std::cout << "data = " << data << std::endl;
+// }
 
-int main( void ) {
-Fixed a;
-Fixed const b( 10 );
-Fixed const c( 42.42f );
-Fixed const d( b );
-a = Fixed( 1234.4321f );
-std::cout << "a is " << a << std::endl;
-std::cout << "b is " << b << std::endl;
-std::cout << "c is " << c << std::endl;
-std::cout << "d is " << d << std::endl;
-std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-return 0;
-}
+// int main( void ) {
+// Fixed a;
+// Fixed const b( 10 );
+// Fixed const c( 42.42f );
+// Fixed const d( b );
+// a = Fixed( 1234.4321f );
+// std::cout << "a is " << a << std::endl;
+// std::cout << "b is " << b << std::endl;
+// std::cout << "c is " << c << std::endl;
+// std::cout << "d is " << d << std::endl;
+// std::cout << "a is " << a.toInt() << " as integer" << std::endl;
+// std::cout << "b is " << b.toInt() << " as integer" << std::endl;
+// std::cout << "c is " << c.toInt() << " as integer" << std::endl;
+// std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+// return 0;
+// }
