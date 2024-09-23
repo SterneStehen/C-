@@ -6,87 +6,123 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:01:18 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/23 12:01:21 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/23 14:36:59 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ClapTrap.hpp                                       :+:      :+:    :+:   */
+/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 11:27:45 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/23 11:59:25 by smoreron         ###   ########.fr       */
+/*   Created: 2024/09/23 12:01:18 by smoreron          #+#    #+#             */
+/*   Updated: 2024/09/23 14:22:31 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
 
-
 class ClapTrap
 {
 private:
-	std::string Name = "Sergii";
-	int HitPoint = 10;
-	int EnergyPoints = 10;
-	int AttackDamage = 0;
-	
+	std::string Name;
+	int HitPoint;
+	int EnergyPoints;
+	int AttackDamage;
+
 public:
-	ClapTrap(/* args */);
+	ClapTrap(std::string newName);
 	~ClapTrap();
 
-	std::string   getName (void) const
-	{
-		return Name;
-	}
-
-
-
-	void attack(const std::string& target);
+	std::string getName(void) const;
+	void attack(const std::string &target);
 	void takeDamage(unsigned int amount);
 	void beRepaired(unsigned int amount);
 	void annonce(void);
-
 };
 
-ClapTrap::ClapTrap(/* args */)
+ClapTrap::ClapTrap(std::string newName) : Name(newName), HitPoint(10), EnergyPoints(10), AttackDamage(0)
 {
+	std::cout << "Constructor " << newName << " is called!" << std::endl;
 }
 
 ClapTrap::~ClapTrap()
 {
+	std::cout << "Destructor " << Name << " is called!" << std::endl;
+}
+
+std::string ClapTrap::getName(void) const
+{
+	return Name;
 }
 
 void ClapTrap::annonce(void)
 {
-	std::cout << "Hit poins = " << HitPoint << "Energy point = " << EnergyPoints << "damage = " << AttackDamage << std::endl;
+	std::cout << Name << " hit points = " << HitPoint << ", Energy points = " << EnergyPoints << ", Attack damage = " << AttackDamage << std::endl;
 }
 
-void ClapTrap::attack(const std::string& target)
+void ClapTrap::attack(const std::string &target)
 {
-	std::cout << "ClapTrap " << getName() <<  "attacks " << target <<  "causing " << "points of damage!" << std::endl;
-	
+	if (HitPoint <= 0)
+	{
+		std::cout << "ClapTrap " << Name << " cannot attack because it has no hit points!" << std::endl;
+		return;
+	}
+	if (EnergyPoints <= 0)
+	{
+		std::cout << "ClapTrap " << Name << " cannot attack because it has no energy points!" << std::endl;
+		return;
+	}
+	std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
+	EnergyPoints--;
 }
+
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	HitPoint -= 1;
-	EnergyPoints -= 1;
-	AttackDamage += 1;
-	std::cout << " takeDamage" << std::endl;
+	HitPoint -= amount;
+	AttackDamage += amount;
+	if (HitPoint < 0)
+		HitPoint = 0;
+	std::cout << Name << " takes " << amount << " points of damage!" << std::endl;
+	if (HitPoint <= 0)
+	{
+		std::cout << Name << " has been KILL!" << std::endl;
+	}
 }
+
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	HitPoint += 1;
-	EnergyPoints -= 1;
-	AttackDamage += 1;
-	std::cout << " takeDamage" << std::endl;
+	if (HitPoint <= 0)
+	{
+		std::cout << "ClapTrap " << Name << " cannot be repaired because it has no hit points!" << std::endl;
+		return;
+	}
+	if (EnergyPoints <= 0)
+	{
+		std::cout << "ClapTrap " << Name << " cannot be repaired because it has no energy points!" << std::endl;
+		return;
+	}
+	HitPoint += amount;
+	AttackDamage -= amount;
+	EnergyPoints--;
+	std::cout << Name << " is repaired by " << amount << " hit points!" << std::endl;
 }
 
 int main()
 {
-	ClapTrap Vova;
+	ClapTrap Vova("Vova");
+	ClapTrap Sergii("Sergii");
+
 	Vova.takeDamage(3);
 	Vova.annonce();
+
+	Sergii.attack("Vova");
+	Vova.beRepaired(2);
+	Vova.attack("Sergii");
+	Vova.attack("Sergii");
+	Vova.takeDamage(9);
+
+	return 0;
 }
