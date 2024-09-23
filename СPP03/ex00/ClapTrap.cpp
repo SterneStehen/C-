@@ -6,42 +6,12 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:01:18 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/23 14:36:59 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/09/23 20:49:21 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ClapTrap.cpp                                       :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/23 12:01:18 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/23 14:22:31 by smoreron         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
 
-#include <iostream>
-
-class ClapTrap
-{
-private:
-	std::string Name;
-	int HitPoint;
-	int EnergyPoints;
-	int AttackDamage;
-
-public:
-	ClapTrap(std::string newName);
-	~ClapTrap();
-
-	std::string getName(void) const;
-	void attack(const std::string &target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
-	void annonce(void);
-};
+#include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap(std::string newName) : Name(newName), HitPoint(10), EnergyPoints(10), AttackDamage(0)
 {
@@ -77,6 +47,7 @@ void ClapTrap::attack(const std::string &target)
 	}
 	std::cout << "ClapTrap " << Name << " attacks " << target << ", causing " << AttackDamage << " points of damage!" << std::endl;
 	EnergyPoints--;
+	takeDamage(1);
 }
 
 void ClapTrap::takeDamage(unsigned int amount)
@@ -110,19 +81,4 @@ void ClapTrap::beRepaired(unsigned int amount)
 	std::cout << Name << " is repaired by " << amount << " hit points!" << std::endl;
 }
 
-int main()
-{
-	ClapTrap Vova("Vova");
-	ClapTrap Sergii("Sergii");
 
-	Vova.takeDamage(3);
-	Vova.annonce();
-
-	Sergii.attack("Vova");
-	Vova.beRepaired(2);
-	Vova.attack("Sergii");
-	Vova.attack("Sergii");
-	Vova.takeDamage(9);
-
-	return 0;
-}
