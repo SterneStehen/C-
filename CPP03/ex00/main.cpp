@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 23:18:19 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/24 23:18:20 by smoreron         ###   ########.fr       */
+/*   Created: 2024/09/23 16:28:03 by smoreron          #+#    #+#             */
+/*   Updated: 2024/10/04 14:38:44 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-#ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
-
 #include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+int	main(void)
 {
-private:
-	/* data */
-public:
-	ScavTrap(std::string newName);
-	~ScavTrap();
-	
-	void attack(const std::string &target);
-	void guardGate();
-};
+	ClapTrap Vova("Vova");
+	ClapTrap Sergii("Sergii");
 
-#endif
+	Vova.attack("Sergii");
+	Vova.takeDamage(3);
+
+	Sergii.attack("Vova");
+	Vova.beRepaired(2);
+	Vova.attack("Sergii");
+	Vova.attack("Sergii");
+	Vova.takeDamage(9);
+
+	return (0);
+}

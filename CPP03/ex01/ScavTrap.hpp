@@ -5,25 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/24 23:18:19 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/24 23:18:20 by smoreron         ###   ########.fr       */
+/*   Created: 2024/10/04 14:39:20 by smoreron          #+#    #+#             */
+/*   Updated: 2024/10/04 14:39:45 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #ifndef SCAVTRAP_HPP
-#define SCAVTRAP_HPP
+# define SCAVTRAP_HPP
 
-#include "ClapTrap.hpp"
+# include "ClapTrap.hpp"
 
-class ScavTrap: public ClapTrap
+class ScavTrap : public ClapTrap
 {
-private:
+  private:
 	/* data */
-public:
+  public:
 	ScavTrap(std::string newName);
 	~ScavTrap();
-	
+
 	void attack(const std::string &target);
 	void guardGate();
 };
