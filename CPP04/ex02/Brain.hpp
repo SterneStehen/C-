@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:58:58 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/01 14:05:15 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:04:56 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,11 @@
 class Brain
 {
 private:
-	
+	std::string	ideas[100];
 public:
 	Brain(/* args */);
 	~Brain();
 	Brain(const Brain &other);
 	Brain &operator=(const Brain &other);
-	std::string	ideas[100];
 };
 #endif

@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:22:50 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/30 21:40:23 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:33:46 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ private:
 public:
 	Animal();
 	Animal& operator=(const Animal& other);
+	
+	Animal(const Animal& other);
 	virtual ~Animal();
 	
 	void setType(const std::string& nType);

@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:36:05 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/30 21:36:58 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:08:51 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,9 @@ private:
 	//std::string type;
 public:
 	Cat();
-	~Cat();
+    Cat(const Cat& other);
+    Cat& operator=(const Cat& other);
+    ~Cat();
 
 	//std::string getType() const;
 	void makeSound() const;

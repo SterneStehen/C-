@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:43:13 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/09 06:15:14 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:53:47 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,13 +23,9 @@ Dog::Dog()
 
 Dog::~Dog()
 {
-	delete this->brain;
 	std::cout << "destr Dog class" << std::endl;
+	delete this->brain;
 }
-
-// std::string Dog::getType() const{
-// 	return Animal::getType;
-// }
 
 void Dog::makeSound() const
 {
@@ -38,13 +34,12 @@ void Dog::makeSound() const
 
 
 Dog::Dog(const Dog& other): Animal(other) {
-    this->brain = new Brain(*other.brain);
     std::cout << "Dog copied" << std::endl;
+    this->brain = new Brain(*other.brain);
 }
 
 Dog	&Dog::operator=(const Dog &other)
 {
-	
 	if (this != &other) { 
         this->setType(other.getType());
         *(this->brain) = *(other.brain);

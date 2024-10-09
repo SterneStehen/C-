@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:55:15 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/30 21:55:16 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:35:48 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,13 @@ Animal::~Animal()
 {
 	std::cout << "destr Animal class" << std::endl;
 }
-
+Animal& Animal::operator=(const Animal& other) {
+    std::cout << "Animal assigned" << std::endl;
+    if (this != &other) {
+        type = other.type;
+    }
+    return *this;
+}
 void Animal::setType(const std::string& nType){ 
 	type = nType;
 	}

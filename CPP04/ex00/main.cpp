@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 18:22:54 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/30 21:38:12 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 15:00:13 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,19 @@ delete j;
 delete i;
 return 0;
 }
+
+// #include "WrongAnimal.hpp"
+// #include "WrongCat.hpp"
+
+
+// int main()
+// {
+// 	const WrongAnimal* A = new WrongAnimal();
+// 	const WrongAnimal* WC = new WrongCat();
+// 	A->makeSound();
+// 	WC->makeSound();
+	
+// 	delete WC;
+// 	delete A;
+// 	return 0;
+// }

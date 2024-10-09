@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:55:22 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/09 06:15:40 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:52:30 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ Cat::Cat()
 
 Cat::~Cat()
 {
-	delete this->brain;
 	std::cout << "destr Cat class" << std::endl;
+	delete this->brain;
 }
 
 void Cat::makeSound() const
@@ -33,8 +33,8 @@ void Cat::makeSound() const
 
 
 Cat::Cat(const Cat& other): Animal(other) {
-    this->brain = new Brain(*other.brain);
     std::cout << "Dog copied" << std::endl;
+    this->brain = new Brain(*other.brain);
 }
 
 Cat& Cat::operator=(const Cat& other) {

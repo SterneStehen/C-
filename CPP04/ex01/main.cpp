@@ -29,9 +29,10 @@ for (size_t i = 0; i < 4; i++)
 	delete A[i];
 }
 
+// std::cout << std::endl;
 // Dog basic;
 // {
-// Dog tmp = basic;
+// 	Dog tmp = basic;
 // }
 
 delete j;

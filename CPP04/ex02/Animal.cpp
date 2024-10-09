@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 21:55:15 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/01 14:39:03 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 14:35:57 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ std::string AAnimal::getType() const{
 
 
 AAnimal& AAnimal::operator=(const AAnimal& other) {
-    std::cout << "Animal assigned" << std::endl;
+    std::cout << "AAnimal assigned" << std::endl;
     if (this != &other) {
         type = other.type;
     }

@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*   WrongCat.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/30 21:35:37 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/09 15:15:17 by smoreron         ###   ########.fr       */
+/*   Created: 2024/10/09 04:52:46 by smoreron          #+#    #+#             */
+/*   Updated: 2024/10/09 15:27:03 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
-#include "Dog.hpp"
+#include "WrongCat.hpp" 
 
-Dog::Dog()
+WrongCat::WrongCat()
 {
-	Animal::setType("Dog");
-	std::cout << "craerted Dog class" << std::endl;
+	WrongAnimal::setType("Cat");
+	std::cout << "craerted WrongCat class" << std::endl;
 }
 
-Dog::Dog(const Dog& other) {
-    std::cout << "Dog copied" << std::endl;
+
+ WrongCat:: WrongCat(const  WrongCat& other) {
+    std::cout << " WrongCat copied" << std::endl;
 	*this = other;
 }
 
-Dog& Dog::operator=(const Dog& other) {
-    std::cout << "Dog assigned" << std::endl;
+ WrongCat&  WrongCat::operator=(const  WrongCat& other) {
+    std::cout << " WrongCat assigned" << std::endl;
     if (this != &other) 
 	{
         setType(other.getType());
@@ -34,16 +35,13 @@ Dog& Dog::operator=(const Dog& other) {
 };
 
 
-Dog::~Dog()
+
+WrongCat::~WrongCat()
 {
-	std::cout << "destr Dog class" << std::endl;
+	std::cout << "destr WrongCat class" << std::endl;
 }
 
-// std::string Dog::getType() const{
-// 	return Animal::getType;
-// }
-
-void Dog::makeSound() const
+void WrongCat::makeSound() const
 {
-	std::cout << "Dog say Gav" << std::endl;
+	std::cout << "WrongCat say Mau" << std::endl;
 }
