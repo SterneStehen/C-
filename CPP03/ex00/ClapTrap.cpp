@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/23 12:01:18 by smoreron          #+#    #+#             */
-/*   Updated: 2024/10/04 14:45:52 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 00:21:26 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@ ClapTrap::ClapTrap(std::string newName) : Name(newName), hitPoint(10),
 	energyPoints(10), attackDamage(0)
 {
 	std::cout << "Constructor " << newName << " is called!" << std::endl;
+}
+
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
+{
+	if (this != &other) {
+        Name = other.Name;
+    }
+    return *this;
 }
 
 ClapTrap::~ClapTrap()

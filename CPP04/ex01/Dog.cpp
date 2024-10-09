@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/30 22:43:13 by smoreron          #+#    #+#             */
-/*   Updated: 2024/09/30 22:48:17 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/10/09 05:49:12 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,15 @@ Dog::Dog(const Dog& other): Animal(other) {
 Dog&  Dog::operator=(const Dog& other)
 {
     std::cout << "Dog operator" << std::endl;
-	Animal::setType() = other;
-    delete this->brain;
-    *(this->brain) = *(other.brain);
+	
+	
+    if(this != &other)
+	{
+		delete this->brain;
+		brain = new Brain(*other.brain);
+		//this->setType(other.getType());
+		*(this->brain) = *(other.brain);
+	}
+    
 	return *this;
 }
