@@ -29,7 +29,10 @@ for (size_t i = 0; i < 4; i++)
 	delete A[i];
 }
 
-
+// Dog basic;
+// {
+// Dog tmp = basic;
+// }
 
 delete j;
 delete i;
