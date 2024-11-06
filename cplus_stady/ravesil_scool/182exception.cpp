@@ -15,7 +15,7 @@ int main ()
 	}
 	catch(int)
 	{
-		std::cout << "exeption" << '\n';
+		std::cout << "excception. Can not take sqrt negative number" << '\n';
 	}
 	
 
