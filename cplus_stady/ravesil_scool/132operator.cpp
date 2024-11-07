@@ -15,21 +15,23 @@ public:
 	{
 		return m_dollar;
 	}
-	friend Dollar operator+(Dollar &d1, Dollar &d2)
-	{
-		return Dollar(d1.m_dollar + d2.m_dollar);
-	}
-
-	friend Dollar operator-(Dollar &d1, Dollar &d2)
-	{
-		return Dollar(d1.m_dollar - d2.m_dollar);
-	}
-
-	friend Dollar operator+(const Dollar &d1, int vaule)
-	{
-		return Dollar(d1.m_dollar + vaule);
-	}
+	
 };
+
+Dollar operator+(Dollar &d1, Dollar &d2)
+	{
+		return Dollar(d1.getdol + d2.getdol);
+	}
+
+	Dollar operator-(Dollar &d1, Dollar &d2)
+	{
+		return Dollar(d1.getdol - d2.getdol);
+	}
+
+	Dollar operator+(const Dollar &d1, int vaule)
+	{
+		return Dollar(d1.getdol + vaule);
+	}
 
 int main()
 {
