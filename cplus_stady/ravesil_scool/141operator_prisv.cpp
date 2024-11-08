@@ -29,6 +29,8 @@ Drop::Drop(const Drop &D){
 }
 
 Drop& Drop::operator=(const Drop &D){
+	if(this == &D)
+		return *this;
 	m_numenator = D.m_numenator;
 	m_denomenator = D.m_denomenator;
 	std::cout << "Assignment operator worked here!" << std::endl;
@@ -60,4 +62,6 @@ int main()
 	Drop As;
 	As = C;
 	std::cout << As << std::endl;
+	D = A = C;
+	std::cout << D << A << C << std::endl;
 }
