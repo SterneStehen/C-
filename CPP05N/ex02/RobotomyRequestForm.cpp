@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:43:11 by smoreron          #+#    #+#             */
-/*   Updated: 2024/11/13 00:34:18 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/11/14 15:24:17 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -19,6 +19,17 @@
 RobotomyRequestForm::RobotomyRequestForm(std::string target)
     : AForm("RobotomyRequestForm", 72, 45), m_target(target) {
     std::srand(std::time(nullptr));
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& src)
+    : AForm(src), m_target(src.m_target) {}
+
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& obj) {
+    if (this != &obj) {
+        AForm::operator=(obj);
+        m_target = obj.m_target;
+    }
+    return *this;
 }
 
 RobotomyRequestForm::~RobotomyRequestForm() {}
