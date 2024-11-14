@@ -6,12 +6,13 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 14:22:54 by smoreron          #+#    #+#             */
-/*   Updated: 2024/11/14 04:08:28 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/11/13 00:34:27 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
 #include "PresidentialPardonForm.hpp"
 #include <iostream>
+
 
 PresidentialPardonForm::PresidentialPardonForm(std::string target)
     : AForm("PresidentialPardonForm", 25, 5), m_target(target) {}
@@ -19,17 +20,20 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target)
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& src)
     : AForm(src), m_target(src.m_target) {}
 
-PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& obj) {
-    if (this != &obj) {
+PresidentialPardonForm& PresidentialPardonForm::operator=(const PresidentialPardonForm& obj) 
+{
+    if (this != &obj) 
+	{
         AForm::operator=(obj);
         m_target = obj.m_target;
     }
     return *this;
 }
 
-PresidentialPardonForm::~PresidentialPardonForm() {}
 
-void PresidentialPardonForm::execute(const Bureaucrat& executor) const {
+
+
+void PresidentialPardonForm::execute(const Bureaucrat &executor) const {
     if (!isSigned())
         throw FormNotSignedException();
     if (executor.getGrade() > getExecGrade())

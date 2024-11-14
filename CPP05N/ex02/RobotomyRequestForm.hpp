@@ -1,35 +1,31 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Intern.hpp                                         :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 04:29:40 by smoreron          #+#    #+#             */
-/*   Updated: 2024/11/14 04:29:41 by smoreron         ###   ########.fr       */
+/*   Created: 2024/11/11 14:43:19 by smoreron          #+#    #+#             */
+/*   Updated: 2024/11/13 00:34:22 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-
-
-
-#ifndef INTERN_HPP
-#define INTERN_HPP
+#ifndef ROBOTOMYREQUESTFORM_HPP
+#define ROBOTOMYREQUESTFORM_HPP
 
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include <string>
+#include <string> 
 
-class Intern {
+class RobotomyRequestForm : public AForm {
+private:
+    std::string m_target;
+
 public:
-    Intern();
-    Intern(const Intern& src);
-    Intern& operator=(const Intern& obj);
-    ~Intern();
+    RobotomyRequestForm(std::string target);
+    virtual ~RobotomyRequestForm();
 
-    AForm* makeForm(const std::string& formName, const std::string& target) const;
+    void execute(const Bureaucrat &executor) const override;
 };
 
 #endif
+ 

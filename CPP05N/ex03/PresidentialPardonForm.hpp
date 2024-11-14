@@ -1,32 +1,29 @@
 /******************************************************************************/
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/11 14:35:07 by smoreron          #+#    #+#             */
-/*   Updated: 2024/11/14 04:07:22 by smoreron         ###   ########.fr       */
+/*   Created: 2024/11/11 14:08:41 by smoreron          #+#    #+#             */
+/*   Updated: 2024/11/11 14:43:30 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#ifndef SHRUBBERYCREATIONFORM_HPP
-#define SHRUBBERYCREATIONFORM_HPP
+#ifndef PRESIDENTIALPARDONFORM_HPP
+#define PRESIDENTIALPARDONFORM_HPP
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm : public AForm {
+class PresidentialPardonForm : public AForm {
 private:
     std::string m_target;
 
 public:
-    ShrubberyCreationForm(std::string target);
-    ShrubberyCreationForm(const ShrubberyCreationForm& src);
-    ShrubberyCreationForm& operator=(const ShrubberyCreationForm& obj);
-    ~ShrubberyCreationForm();
+    PresidentialPardonForm(std::string target);
+    virtual ~PresidentialPardonForm();
 
-    void execute(const Bureaucrat& executor) const override;
+    void execute(const Bureaucrat &executor) const override;
 };
 
 #endif
-

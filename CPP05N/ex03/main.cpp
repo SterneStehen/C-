@@ -14,35 +14,45 @@
 #include "Intern.hpp"
 #include "Bureaucrat.hpp"
 
-int main() {
-    try {
+int main() 
+{
+    try 
+	{
         Intern intern;
-        Bureaucrat bob("Bob", 1);
+        Bureaucrat Serg("Serg", 1);
 
-        AForm* shrubbery = intern.makeForm("shrubbery creation", "garden");
+		std::cout << "============= shrubbery ========================" << std::endl;
+
+        AForm* shrubbery = intern.makeForm("shrubber", "garden");
         if (shrubbery) {
-            shrubbery->beSigned(bob);
-            bob.executeForm(*shrubbery);
+            shrubbery->beSigned(Serg);
+            Serg.executeForm(*shrubbery);
             delete shrubbery;
         }
 
-        AForm* robotomy = intern.makeForm("robotomy request", "Bender");
+		std::cout << "============= ROBOT ========================" << std::endl;
+
+        AForm* robotomy = intern.makeForm("robot", "Bender");
         if (robotomy) {
-            robotomy->beSigned(bob);
-            bob.executeForm(*robotomy);
+            robotomy->beSigned(Serg);
+            Serg.executeForm(*robotomy);
             delete robotomy;
         }
 
-        AForm* pardon = intern.makeForm("presidential pardon", "Alice");
+			std::cout << "============= President ========================" << std::endl;
+
+        AForm* pardon = intern.makeForm("president", "Alice");
         if (pardon) {
-            pardon->beSigned(bob);
-            bob.executeForm(*pardon);
+            pardon->beSigned(Serg);
+            Serg.executeForm(*pardon);
             delete pardon;
         }
-
-        intern.makeForm("unknown form", "test");
-    } catch (const std::exception& e) {
-        std::cerr << e.what() << std::endl;
+		std::cout << "============= uKnown ========================" << std::endl;
+        intern.makeForm("uKnown form", "test");
+    } 
+	catch (const std::exception& ex) 
+	{
+        std::cerr << ex.what() << std::endl;
     }
 
     return 0;
