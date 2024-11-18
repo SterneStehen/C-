@@ -6,7 +6,7 @@
 /*   By: smoreron <7353718@gmail.com>               +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 13:55:27 by smoreron          #+#    #+#             */
-/*   Updated: 2024/11/14 15:22:20 by smoreron         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:18:29 by smoreron         ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
@@ -36,7 +36,7 @@ public:
 
     const std::string &getName() const;
     bool isSigned() const;
-    int getSignGrade() const;
+    int getSignGrade() const; 
     int getExecGrade() const;
 
     void beSigned(const Bureaucrat &bureaucrat);
